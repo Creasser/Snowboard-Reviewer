@@ -1,6 +1,6 @@
 # Phase 3 Flatiron School Project 
 
-##Technologies Used
+## Technologies Used
 
 * Ruby
   * ActiveRecord
