@@ -6,4 +6,10 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  #route to get all snowboards from the DB
+  GET '/snowboards' do
+    snowboards = Snowboard.all
+    snowboards.to_json
+  end
+
 end
