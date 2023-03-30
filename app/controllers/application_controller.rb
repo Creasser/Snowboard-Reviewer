@@ -7,9 +7,20 @@ class ApplicationController < Sinatra::Base
   end
 
   #route to get all snowboards from the DB
-  GET '/snowboards' do
+  get '/snowboards' do
     snowboards = Snowboard.all
-    snowboards.to_json
+    snowboards.to_json(include: :reviews)
+  end
+
+  post '/snowboards' do
+    snowboard = Snowboard.create(
+      brand: params[:brand],
+      price: params[:price],
+      preferred_riding: params[:preferred_riding],
+      directional: params[:directional],
+      image_url: params[:image_url]
+    )
+    snowboard.to_json
   end
 
 end
