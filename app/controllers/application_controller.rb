@@ -23,4 +23,10 @@ class ApplicationController < Sinatra::Base
     snowboard.to_json
   end
 
+  delete '/snowboards/:id' do
+    snowboard = Snowboard.find(params[:id])
+    snowboard.destroy
+    snowboard.to_json
+  end
+
 end
