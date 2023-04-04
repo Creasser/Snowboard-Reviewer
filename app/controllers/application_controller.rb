@@ -1,11 +1,6 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add your routes here
-  get "/" do
-    { message: "Good luck with your project!" }.to_json
-  end
-
   #routes for snowboard CRUD actions
   get '/snowboards' do
     snowboards = Snowboard.all
@@ -41,12 +36,20 @@ class ApplicationController < Sinatra::Base
     snowboard.to_json
   end
 
-
 #routes for review CRUD actions
 
   delete '/snowboards/:board_id/reviews/:id' do
     review = Review.find(params[:id])
     review.destroy
+    review.to_json
+  end
+
+  post '/snowboards/:board_id/reviews' do
+    review = Review.create(
+      rating: params[:rating]
+      board_id: params[:board_id]
+      comment: params[:comment]
+    )
     review.to_json
   end
 
