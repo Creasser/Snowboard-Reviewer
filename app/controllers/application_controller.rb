@@ -29,4 +29,16 @@ class ApplicationController < Sinatra::Base
     snowboard.to_json
   end
 
+  patch '/snowboards/:id' do
+    snowboard = Snowboard.find(params[:id])
+    snowboard.update(
+      brand: params[:brand],
+      price: params[:price],
+      preferred_riding: params[:preferred_riding],
+      directional: params[:directional],
+      image_url: params[:image_url]
+    )
+    snowboard.to_json
+  end
+
 end
