@@ -46,8 +46,8 @@ class ApplicationController < Sinatra::Base
 
   post '/snowboards/:board_id/reviews' do
     review = Review.create(
-      rating: params[:rating]
-      board_id: params[:board_id]
+      rating: params[:rating],
+      snowboard_id: params[:snowboard_id],
       comment: params[:comment]
     )
     review.to_json
