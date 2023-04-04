@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
-  #route to get all snowboards from the DB
+  #routes for snowboard CRUD actions
   get '/snowboards' do
     snowboards = Snowboard.all
     snowboards.to_json(include: :reviews)
@@ -40,6 +40,9 @@ class ApplicationController < Sinatra::Base
     )
     snowboard.to_json
   end
+
+
+#routes for review CRUD actions
 
   delete '/snowboards/:board_id/reviews/:id' do
     review = Review.find(params[:id])
