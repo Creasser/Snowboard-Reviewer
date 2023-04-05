@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
       directional: params[:directional],
       image_url: params[:image_url]
     )
-    snowboard.to_json
+    snowboard.to_json(include: :reviews)
   end
 
   delete '/snowboards/:id' do
@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
       directional: params[:directional],
       image_url: params[:image_url]
     )
-    snowboard.to_json
+    snowboard.to_json(include: :reviews)
   end
 
 #routes for review CRUD actions
