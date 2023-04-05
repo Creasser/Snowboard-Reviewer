@@ -20,7 +20,7 @@ Snowboard Reviewer is a full stack application that utilizes a React.js frontend
 
 ## User Interactions
 
-* The user will be able to add snowboards to the database through a controlled form
+* The user is able to add snowboards to the database through a controlled form
   * When adding the user will input the brand, price, image, directional status, and preferred riding conditiion
     * This will be sent to backend via POST request
 * The user is be able to make a review for newly added boards and pre-existing boards through a controlled form
